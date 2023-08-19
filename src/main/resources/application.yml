@@ -2,9 +2,9 @@ spring:
     application: 
         name: jpaservice
     datasource:
-        url: jdbc:log4jdbc:mysql://seoulit701.iptime.org:3306/jpastart?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
+        url: jdbc:log4jdbc:mysql://docker.cebdid7bbudq.ap-northeast-2.rds.amazonaws.com:3306/jpastart?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&allowPublicKeyRetrieval=true
         username: root
-        password: 1111
+        password: 111111
         driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     jpa:
         properties:
@@ -15,7 +15,7 @@ spring:
         port: 6379
         host: localhost
 server:
-    port: 8080
+    port: 80
 
 mybatis:
     mapper-locations: classpath:mapper/**/*.xml
