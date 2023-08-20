@@ -5,7 +5,7 @@ pipeline {
             PROFILE = 'local'
             AWS_CREDENTIAL_NAME = 'aws-key'
             REGION="ap-northeast-2"
-            ECR_PATH = 'https:/417000626634.dkr.ecr.ap-northeast-2.amazonaws.com'
+            ECR_PATH = '417000626634.dkr.ecr.ap-northeast-2.amazonaws.com'
             IMAGE_NAME = '417000626634.dkr.ecr.ap-northeast-2.amazonaws.com/board'
             DEPLOY_Host="3.36.101.228"
         }
@@ -61,7 +61,7 @@ pipeline {
                 sshagent(credentials : ["deploy-ssh-key"]) {
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@$DEPLOY_Host \
                      'aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin $ECR_PATH; \
-                    docker run -d -p :80 -t $IMAGE_NAME:${BUILD_NUMBER};'"
+                    docker run -d -p 80:8888 -t $IMAGE_NAME:${BUILD_NUMBER};'"
                 }
              }
         }
